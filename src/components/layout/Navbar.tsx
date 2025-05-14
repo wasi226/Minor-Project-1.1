@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Leaf, Search } from 'lucide-react';
+import { Menu, X, Leaf, Search, LogIn, UserPlus } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,8 +69,19 @@ const Navbar: React.FC = () => {
             <button className="p-2 text-gray-700 hover:text-primary-600 transition-colors">
               <Search className="h-5 w-5" />
             </button>
-            <Link to="/explore" className="btn btn-primary">
-              Explore Plants
+            <Link 
+              to="/login" 
+              className="flex items-center px-4 py-2 text-primary-600 hover:text-primary-700 transition-colors"
+            >
+              <LogIn className="h-5 w-5 mr-2" />
+              Sign in
+            </Link>
+            <Link 
+              to="/register" 
+              className="flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+            >
+              <UserPlus className="h-5 w-5 mr-2" />
+              Sign up
             </Link>
           </div>
           
@@ -101,9 +112,20 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <div className="pt-2 border-t border-gray-100">
-              <Link to="/explore" className="btn btn-primary block text-center">
-                Explore Plants
+            <div className="pt-4 border-t border-gray-100 flex flex-col space-y-2">
+              <Link 
+                to="/login" 
+                className="flex items-center px-4 py-2 text-primary-600 hover:text-primary-700 transition-colors rounded-md hover:bg-primary-50"
+              >
+                <LogIn className="h-5 w-5 mr-2" />
+                Sign in
+              </Link>
+              <Link 
+                to="/register" 
+                className="flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
+              >
+                <UserPlus className="h-5 w-5 mr-2" />
+                Sign up
               </Link>
             </div>
           </nav>
